@@ -1,63 +1,53 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Test AWS Lambda</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+  <meta charset="utf-8" />
+  <title>My Simple Inventory App</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-    <h1>Simple Demo for PUT, GET, and DELETE</h1>
-    <p id="lambda-info">
-        <!-- loaded with AJAX -->
-    </p>
-
-    <hr>
-    <button id="send-data">Send Data</button>
-    <p>Sends an example JSON object to the server with id 11111</p>
-    <script>
-        document.getElementById("send-data").onclick = function () {
-            let xhr = new XMLHttpRequest();
-            xhr.open("PUT", "Your Lambda here");
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(JSON.stringify({
-                "id": "6666666",
-                "price": 19,
-                "name": "test put value"
-            }));
-        }
-    </script>
-
-    <button id="load-data">Load Data</button>
-    <p>Loads data from the server</p>
-    <script>
-        document.getElementById("load-data").onclick = function () {
-            let lambda = document.getElementById("lambda-info");
-            let xhr = new XMLHttpRequest();
-            xhr.addEventListener("load", function () {
-                lambda.innerHTML = xhr.response;
-            });
-            xhr.open("GET", "Your Lambda here");
-            xhr.send();
-        }
-
-    </script>
-
-    <hr>
-    <button id="delete-data">Delete Data</button>
-    <p>Deletes a JSON object from the server with 11111</p>
-    <script>
-        document.getElementById("delete-data").onclick = function () {
-            let xhr = new XMLHttpRequest();
-            xhr.open("DELETE", "Your Lambda here");
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send();
-        }
-    </script>
+  <header class="page-header">
+    <h1>My Simple Inventory App</h1>
+    <button id="load" class="btn">Load All Items</button>
+  </header>
+  <main>
+    <section class="table-wrap">
+      <table id="items-table" aria-label="Items">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th class="right">Action</th>
+          </tr>
+        </thead>
+        <tbody id="items-body">
+        </tbody>
+      </table>
+    </section>
+    <hr class="divider" />
+    <section class="card">
+      <h2>Add New Item to Database</h2>
+      <form id="create-form" autocomplete="off">
+        <div class="field">
+          <label for="id">ID:</label>
+          <input id="id" name="id" placeholder="Placeholder" required />
+        </div>
+        <div class="field">
+          <label for="name">Name:</label>
+          <input id="name" name="name" placeholder="Placeholder" required />
+        </div>
+        <div class="field">
+          <label for="price">Price:</label>
+          <input id="price" name="price" type="number" min="0" step="1" placeholder="Placeholder" required />
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn">Add Item</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="js/main.js"></script>
 </body>
-
 </html>

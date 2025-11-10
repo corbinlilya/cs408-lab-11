@@ -1,4 +1,94 @@
-h1{
-  border-color: #d3e644;
-  border-style: dashed;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 24px;
+  color: #111;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+h1, h2 {
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.table-wrap {
+  margin-top: 20px;
+  max-width: 720px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+th {
+  background: #eee;
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.divider {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+  max-width: 720px;
+}
+
+.card {
+  max-width: 560px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.field label {
+  width: 70px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.field input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.actions {
+  text-align: right;
 }
